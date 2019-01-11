@@ -190,7 +190,7 @@ def run_inference_for_single_image(image, graph):
 # In[12]:
 
 
-image = Image.open('/home/vinamra/myproj/raccoon_dataset/testimg/raccoon-1.jpg')
+image = Image.open('/home/vinamra/myproj/raccoon_dataset/testimg/raccoon-3.jpg')
 # the array based representation of the image will be used later in order to prepare the
 # result image with boxes and labels on it.
 image_np = load_image_into_numpy_array(image)

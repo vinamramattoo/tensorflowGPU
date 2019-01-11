@@ -155,3 +155,16 @@ setpy in model dir then run
 ```
 python object_detection/model_main.py --logtostderr --train_dir=training/checkpoints --pipeline_config_path=training/raccontrain.config
 ```
+
+to run inference go to object_detection and
+```
+python p2inference.py
+```
+
+Please note the backup for conda env is in ```tgpu.yml``` and for pip is in ```requirements.txt``` 
+
+to freeze the model run 
+
+```
+python object_detection/export_inference_graph.py  --input_type image_tensor --pipeline_config_path training/raccontrain.config --trained_checkpoint_prefix ../../../tmpjyp8mwta/model.ckpt-5000 --output_directory ./final_frozen_model.pb
+```
