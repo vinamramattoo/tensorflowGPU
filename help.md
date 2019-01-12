@@ -155,7 +155,10 @@ setpy in model dir then run
 ```
 python object_detection/model_main.py --logtostderr --train_dir=training/checkpoints --pipeline_config_path=training/raccontrain.config
 ```
-
+#legacy code
+```
+ python object_detection/legacy/train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/raccontrain.config 
+```
 to run inference go to object_detection and
 ```
 python p2inference.py

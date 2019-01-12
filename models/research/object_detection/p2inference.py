@@ -65,7 +65,9 @@ from utils import visualization_utils as vis_util
 # DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 
 PATH_TO_FROZEN_GRAPH = '/home/vinamra/myproj/raccoon_dataset/models/research/training/output_inference_graph.pb'
+# PATH_TO_FROZEN_GRAPH = '/home/vinamra/myproj/raccoon_dataset/models/research/training/checkpoints/frozen_legacy/frozen_inference_graph.pb'
 
+# PATH_TO_LABELS = '/home/vinamra/myproj/raccoon_dataset/models/research/training/object-detection.pbtxt'
 PATH_TO_LABELS = '/home/vinamra/myproj/raccoon_dataset/models/research/training/object-detection.pbtxt'
 
 NUM_CLASSES = 1
@@ -166,7 +168,7 @@ def run_inference_for_single_image(image, graph):
                 detection_masks_reframed = utils_ops.reframe_box_masks_to_image_masks(
                     detection_masks, detection_boxes, image.shape[0], image.shape[1])
                 detection_masks_reframed = tf.cast(
-                    tf.greater(detection_masks_reframed, 0.5), tf.uint8)
+                    tf.greater(detection_masks_reframed, 0.1), tf.uint8)
                 # Follow the convention by adding back the batch dimension
                 tensor_dict['detection_masks'] = tf.expand_dims(
                     detection_masks_reframed, 0)
@@ -190,7 +192,7 @@ def run_inference_for_single_image(image, graph):
 # In[12]:
 
 
-image = Image.open('/home/vinamra/myproj/raccoon_dataset/testimg/raccoon-3.jpg')
+image = Image.open('/home/vinamra/myproj/raccoon_dataset/testimg/raccoon-4.jpg')
 # the array based representation of the image will be used later in order to prepare the
 # result image with boxes and labels on it.
 image_np = load_image_into_numpy_array(image)
